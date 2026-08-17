@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Saravan — Quant Researcher, Co-Founder & CEO at Velsar." />
+  <title>Saravan — Quant Researcher · Co-Founder & CEO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050505;
+      --bg-soft: #0a0a0a;
+      --panel: rgba(255,255,255,.045);
+      --panel-strong: rgba(255,255,255,.065);
+      --line: rgba(255,255,255,.10);
+      --line-soft: rgba(255,255,255,.06);
+      --text: #f5f5f3;
+      --muted: #8f8f8a;
+      --muted-2: #666661;
+      --accent: #d7ff45;
+      --accent-2: #9eff00;
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--bg);
+      font-family: Manrope, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .32;
+      background-image: linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: linear-gradient(to bottom, black, transparent 75%);
+    }
+    a { color: inherit; text-decoration: none; }
+    .shell { width: min(calc(100% - 40px), var(--max)); margin: 0 auto; }
+    .nav-wrap {
+      position: fixed; z-index: 20; top: 18px; left: 0; right: 0;
+    }
+    nav {
+      width: min(calc(100% - 40px), 720px);
+      margin: auto;
+      padding: 8px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+      border: 1px solid var(--line);
+      background: rgba(7,7,7,.74);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-radius: 18px;
+      box-shadow: 0 20px 70px rgba(0,0,0,.45);
+    }
+    nav a {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 5px; padding: 10px 12px; min-height: 60px; border-radius: 12px;
+      color: var(--muted); font-size: 11px; letter-spacing: .13em; text-transform: uppercase; font-weight: 700;
+      transition: .25s ease;
+    }
+    nav a:hover, nav a.active { color: var(--text); background: rgba(255,255,255,.07); }
+    nav svg { width: 17px; height: 17px; stroke-width: 1.7; }
+    main { position: relative; }
+    .hero { min-height: 78vh; display: grid; place-items: center; padding: 120px 0 70px; position: relative; }
+    .hero::after {
+      content: ""; position: absolute; width: 560px; height: 560px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(215,255,69,.10), transparent 68%); filter: blur(10px); z-index: -1;
+    }
+    .hero-inner { width: 100%; }
+    .eyebrow { display: flex; align-items: center; gap: 12px; color: var(--muted); font-family: "DM Mono", monospace; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 22px var(--accent); }
+    h1 { margin: 22px 0 22px; font-size: clamp(72px, 14vw, 170px); line-height: .82; letter-spacing: -.075em; font-weight: 800; max-width: 950px; }
+    .hero-copy { max-width: 680px; color: #b0b0ab; font-size: clamp(18px, 2.3vw, 25px); line-height: 1.5; letter-spacing: -.025em; }
+    .hero-copy strong { color: var(--text); font-weight: 600; }
+    .hero-meta { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .pill { border: 1px solid var(--line); background: rgba(255,255,255,.035); padding: 11px 15px; border-radius: 999px; display: inline-flex; align-items: center; gap: 13px; color: #aaa; font-size: 12px; }
+    .pill span { color: var(--text); }
+    .scroll { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); color: var(--muted-2); font-family: "DM Mono", monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
+    section { padding: 82px 0; border-top: 1px solid var(--line-soft); }
+    .section-head { display: grid; grid-template-columns: 160px 1fr; gap: 32px; margin-bottom: 42px; }
+    .section-index { color: var(--accent); font-family: "DM Mono", monospace; font-size: 11px; letter-spacing: .14em; padding-top: 8px; }
+    .section-title { margin: 0; font-size: clamp(38px, 6vw, 68px); line-height: .98; letter-spacing: -.055em; }
+    .about-grid { display: grid; grid-template-columns: 1.35fr .65fr; gap: 20px; }
+    .card { border: 1px solid var(--line); background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018)); border-radius: 24px; padding: 30px; }
+    .about-text { font-size: 20px; line-height: 1.55; color: #b7b7b2; letter-spacing: -.02em; }
+    .about-text em { color: var(--text); font-style: normal; }
+    .mini-label { color: var(--muted-2); font-family: "DM Mono", monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 18px; }
+    .interest-list { display: grid; gap: 8px; }
+    .interest { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid var(--line-soft); color: #d5d5d0; }
+    .interest:last-child { border-bottom: 0; }
+    .interest b { font-size: 15px; font-weight: 600; }
+    .interest span { color: var(--muted-2); font-size: 14px; }
+    .timeline { position: relative; margin-left: 160px; border-left: 1px solid var(--line); }
+    .role { position: relative; padding: 0 0 54px 54px; }
+    .role:last-child { padding-bottom: 0; }
+    .role::before { content: ""; position: absolute; left: -5px; top: 5px; width: 9px; height: 9px; border-radius: 50%; background: var(--bg); border: 1px solid var(--accent); box-shadow: 0 0 20px rgba(215,255,69,.35); }
+    .role-year { color: var(--accent); font-family: "DM Mono", monospace; font-size: 11px; letter-spacing: .1em; }
+    .role h3 { margin: 13px 0 9px; font-size: clamp(26px, 4vw, 42px); letter-spacing: -.045em; }
+    .company { color: #c7c7c2; font-size: 15px; }
+    .role p { max-width: 620px; color: var(--muted); line-height: 1.7; margin: 18px 0 0; }
+    .current { display: inline-flex; align-items: center; gap: 7px; margin-left: 14px; padding: 5px 8px; border-radius: 999px; background: rgba(215,255,69,.08); color: var(--accent); font-family: "DM Mono", monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; vertical-align: middle; }
+    .contact { min-height: 54vh; display: grid; place-items: center; text-align: center; position: relative; }
+    .contact h2 { margin: 0; font-size: clamp(52px, 10vw, 120px); line-height: .9; letter-spacing: -.07em; }
+    .contact p { max-width: 520px; margin: 28px auto; color: var(--muted); line-height: 1.7; }
+    .email { display: inline-flex; align-items: center; gap: 12px; font-family: "DM Mono", monospace; font-size: clamp(15px, 2vw, 20px); color: var(--accent); border-bottom: 1px solid rgba(215,255,69,.35); padding-bottom: 8px; transition: .25s ease; }
+    .email:hover { border-color: var(--accent); transform: translateY(-2px); }
+    footer { padding: 22px 0 30px; border-top: 1px solid var(--line-soft); display: flex; justify-content: space-between; gap: 20px; color: var(--muted-2); font-family: "DM Mono", monospace; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    @media (max-width: 760px) {
+      .shell { width: min(calc(100% - 28px), var(--max)); }
+      nav { width: calc(100% - 28px); }
+      .hero { padding-top: 120px; min-height: 72vh; }
+      h1 { font-size: clamp(64px, 22vw, 120px); }
+      .section-head { grid-template-columns: 1fr; gap: 12px; margin-bottom: 36px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .card { padding: 22px; border-radius: 20px; }
+      .about-text { font-size: 17px; }
+      .timeline { margin-left: 10px; }
+      .role { padding-left: 34px; }
+      footer { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <nav aria-label="Primary navigation">
+      <a href="#about" class="active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="8" r="3"/><path d="M5 20c.8-3.5 3.1-5 7-5s6.2 1.5 7 5"/></svg>
+        <span>About</span>
+      </a>
+      <a href="#experience">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18"/></svg>
+        <span>Experience</span>
+      </a>
+      <a href="#contact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 5h16v14H4z"/><path d="m4 7 8 6 8-6"/></svg>
+        <span>Contact</span>
+      </a>
+    </nav>
+  </div>
+
+  <main>
+    <header class="hero shell">
+      <div class="hero-inner reveal">
+        <div class="eyebrow"><span class="dot"></span> Saravan</div>
+        <h1>Saravan.</h1>
+        <p class="hero-copy">My work has taken me from <strong>quantitative research in high-frequency trading</strong> to building Velsar.</p>
+        <div class="hero-meta">
+          <div class="pill"><span>Now</span><strong>Co-Founder &amp; CEO · Velsar</strong></div>
+        </div>
+      </div>
+      <div class="scroll">Scroll to explore</div>
+    </header>
+
+    <section id="about">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div class="section-index">01 / ABOUT</div>
+          <h2 class="section-title">Curious by default.<br>Precise by design.</h2>
+        </div>
+        <div class="about-grid">
+          <article class="card about-text reveal">
+            I studied <em>Computer Science, Mathematics and Commerce across two bachelor’s degrees.</em> I enjoy problems that demand clear thinking and a strong grasp of numbers.
+          </article>
+          <aside class="card reveal">
+            <div class="mini-label">Curiosities</div>
+            <div class="interest-list">
+              <div class="interest"><b>Quantum mechanics</b><span>↗</span></div>
+              <div class="interest"><b>Game theory</b><span>↗</span></div>
+              <div class="interest"><b>Poker</b><span>↗</span></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div class="section-index">02 / EXPERIENCE</div>
+          <h2 class="section-title">A short timeline,<br>with a long horizon.</h2>
+        </div>
+        <div class="timeline">
+          <article class="role reveal">
+            <div class="role-year">2025 — 2026</div>
+            <h3>Quant Researcher</h3>
+            <div class="company">High-Frequency Trading firm</div>
+            <p>Conducted quantitative research on market data and systematic trading problems at a high-frequency trading firm.</p>
+          </article>
+          <article class="role reveal">
+            <div class="role-year">2026 — PRESENT</div>
+            <h3>Co-Founder & CEO <span class="current">Current</span></h3>
+            <div class="company">Velsar</div>
+            <p>Building Velsar from first principles across product, strategy and execution.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="shell reveal">
+        <div class="section-index">03 / CONTACT</div>
+        <h2>Let’s talk.</h2>
+        <p>I enjoy thoughtful conversations, sharp ideas, deep research rabbit holes and the occasional problem that refuses to be left alone.</p>
+        <a class="email" href="mailto:team@velsar.io">
+          team@velsar.io
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <div class="shell">
+    <footer>
+      <span>© 2026 Saravan</span>
+    </footer>
+  </div>
+
+  <script>
+    const links = [...document.querySelectorAll('nav a')];
+    const sections = [...document.querySelectorAll('main section[id]')];
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          links.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id));
+        }
+      });
+    }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
+    sections.forEach(section => observer.observe(section));
+
+    const reveal = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          reveal.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => reveal.observe(el));
+  </script>
+</body>
+</html>
